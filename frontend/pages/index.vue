@@ -1,4 +1,43 @@
-<script setup></script>
+<script setup lang="ts">
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  ArcElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { PolarArea } from "vue-chartjs";
+
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+const data = {
+  labels: ["Go", "Vue", "TypeScript", "Ruby", "JavaScript"],
+  datasets: [
+    // {
+    //   label: "My First dataset",
+    //   backgroundColor: "rgba(179,181,198,0.2)",
+    //   pointBackgroundColor: "rgba(179,181,198,1)",
+    //   pointBorderColor: "#fff",
+    //   pointHoverBackgroundColor: "#fff",
+    //   pointHoverBorderColor: "rgba(179,181,198,1)",
+    //   data: [65, 59, 90, 81, 56],
+    // },
+    {
+      label: "My Second dataset",
+      backgroundColor: "rgba(255,99,132,0.2)",
+      // pointBackgroundColor: "rgba(255,99,132,1)",
+      pointBorderColor: "#fff",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "rgba(255,99,132,1)",
+      data: [28, 48, 40, 19, 96],
+    },
+  ],
+};
+
+const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+};
+</script>
 
 <template>
   <div class="container mx-auto my-5 p-5">
@@ -89,9 +128,7 @@
                 />
               </svg>
             </span>
-            <span class="tracking-wide"
-              >エンジニアとしての実務期間とGithubで最も使用している言語を表示する</span
-            >
+            <span class="tracking-wide">Engineer Profile</span>
           </div>
           <div class="text-gray-700">
             <div class="grid md:grid-cols-2 text-sm">
@@ -107,7 +144,7 @@
               </div>
             </div>
           </div>
-          <div>GithubAPIで取得したデータをもとにグラフを表示</div>
+          <div><PolarArea :data="data" :options="options" /></div>
         </div>
         <!-- End of about section -->
 
