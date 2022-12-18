@@ -5,29 +5,33 @@ import {
   ArcElement,
   Tooltip,
   Legend,
+  Title,
+  BarElement,
+  CategoryScale,
+  LinearScale,
 } from "chart.js";
 import { PolarArea } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 const data = {
   labels: ["Go", "Vue", "TypeScript", "Ruby", "JavaScript"],
   datasets: [
-    // {
-    //   label: "My First dataset",
-    //   backgroundColor: "rgba(179,181,198,0.2)",
-    //   pointBackgroundColor: "rgba(179,181,198,1)",
-    //   pointBorderColor: "#fff",
-    //   pointHoverBackgroundColor: "#fff",
-    //   pointHoverBorderColor: "rgba(179,181,198,1)",
-    //   data: [65, 59, 90, 81, 56],
-    // },
     {
       label: "My Second dataset",
       backgroundColor: "rgba(255,99,132,0.2)",
       // pointBackgroundColor: "rgba(255,99,132,1)",
       pointBorderColor: "#fff",
       pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgba(255,99,132,1)",
+      // pointHoverBorderColor: "rgba(255,99,132,1)",
       data: [28, 48, 40, 19, 96],
     },
   ],
@@ -65,7 +69,7 @@ const options = {
               <span>Status</span>
               <span class="ml-auto"
                 ><span class="bg-green-500 py-1 px-2 rounded text-white text-sm"
-                  >Active</span
+                  >Looking for new job</span
                 ></span
               >
             </li>
@@ -138,13 +142,20 @@ const options = {
                 <div>2021/02/08~2022/12/18</div>
               </div>
               <div class="px-4 py-2 m-2 border">
-                <div>使用言語が高い言語</div>
+                <div>Most Used Language</div>
                 <div>Go</div>
                 <div>○○○○(トータルコード数)</div>
               </div>
             </div>
           </div>
-          <div><PolarArea :data="data" :options="options" /></div>
+          <div class="text-center">Top 5 for Most Used Language</div>
+          <div>
+            <PolarArea :data="data" :options="options" />
+          </div>
+          <div class="text-center">1 week of contributions</div>
+          <div>
+            <Bar :data="data" :options="options" />
+          </div>
         </div>
         <!-- End of about section -->
 
