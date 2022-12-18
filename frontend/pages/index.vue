@@ -85,24 +85,31 @@ const viewCareerDate = () => {
                     />
                   </svg>
                 </span>
-                <span class="tracking-wide">持っている資格</span>
+                <span class="tracking-wide">Qualifications</span>
               </div>
               <ul class="list-inside space-y-2">
                 <li>
-                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                  <a
+                    class="text-teal-600"
+                    href="https://www.credly.com/earner/earned/badge/8e14359e-5350-4afc-bb2b-f2c9cb1bab87"
+                  >
+                    AWS Certified Cloud Practitioner
+                  </a>
+                  <div class="text-gray-500 text-xs">July 2021</div>
                 </li>
                 <li>
-                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                  <div class="text-teal-600">銀行業務検定法務3級</div>
+                  <div class="text-gray-500 text-xs">June 2018</div>
                 </li>
                 <li>
-                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                  <div class="text-teal-600">日商簿記検定試験3級</div>
+                  <div class="text-gray-500 text-xs">February 2018</div>
                 </li>
                 <li>
-                  <div class="text-teal-600">Owner at Her Company Inc.</div>
-                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                  <div class="text-teal-600">
+                    3級ファイナンシャル・プランニング技能士(FP)
+                  </div>
+                  <div class="text-gray-500 text-xs">October 2017</div>
                 </li>
               </ul>
             </div>
@@ -131,16 +138,18 @@ const viewCareerDate = () => {
                     />
                   </svg>
                 </span>
-                <span class="tracking-wide">学歴・職歴</span>
+                <span class="tracking-wide">Education and Work Experience</span>
               </div>
               <ul class="list-inside space-y-2">
                 <li>
-                  <div class="text-teal-600">Masters Degree in Oxford</div>
-                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                  <div class="text-teal-600">株式会社Vitalize</div>
+                  <div class="text-gray-500 text-xs">February 2021 - Now</div>
                 </li>
                 <li>
-                  <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                  <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                  <div class="text-teal-600">株式会社福岡銀行</div>
+                  <div class="text-gray-500 text-xs">
+                    April 2017 - September 2020
+                  </div>
                 </li>
               </ul>
             </div>
