@@ -1,45 +1,11 @@
 <script setup lang="ts">
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  ArcElement,
-  Tooltip,
-  Legend,
-  Title,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
-import { PolarArea } from "vue-chartjs";
-import { Bar } from "vue-chartjs";
+import { calcCareer, formatDate } from "~/util/date";
 
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-const data = {
-  labels: ["Go", "Vue", "TypeScript", "Ruby", "JavaScript"],
-  datasets: [
-    {
-      label: "My Second dataset",
-      backgroundColor: "rgba(255,99,132,0.2)",
-      // pointBackgroundColor: "rgba(255,99,132,1)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      // pointHoverBorderColor: "rgba(255,99,132,1)",
-      data: [28, 48, 40, 19, 96],
-    },
-  ],
-};
+const viewCareerDate = () => {
+  const startDate = formatDate(new Date("2021-02-08"));
+  const today = formatDate(new Date());
 
-const options = {
-  responsive: true,
-  maintainAspectRatio: false,
+  return `${startDate}~${today}`;
 };
 </script>
 
@@ -136,26 +102,22 @@ const options = {
           </div>
           <div class="text-gray-700">
             <div class="grid md:grid-cols-2 text-sm">
-              <div class="px-4 py-2 m-2 border">
-                <div>エンジニア歴</div>
-                <div>○○日</div>
-                <div>2021/02/08~2022/12/18</div>
+              <div class="px-4 py-2 m-2 border rounded-lg">
+                <div class="p-2">Engineer Career</div>
+                <div class="p-2 text-xl font-bold">{{ calcCareer() }}days</div>
+                <div class="p-2">
+                  {{ viewCareerDate() }}
+                </div>
               </div>
-              <div class="px-4 py-2 m-2 border">
-                <div>Most Used Language</div>
-                <div>Go</div>
-                <div>○○○○(トータルコード数)</div>
+              <div class="px-4 py-2 m-2 border rounded-lg">
+                <div class="p-2">Most Used Language</div>
+                <div class="p-2 text-xl font-bold">Go</div>
+                <div class="p-2">○○○○(トータルコード数)</div>
               </div>
             </div>
           </div>
-          <div class="text-center">Top 5 for Most Used Language</div>
-          <div>
-            <PolarArea :data="data" :options="options" />
-          </div>
-          <div class="text-center">1 week of contributions</div>
-          <div>
-            <Bar :data="data" :options="options" />
-          </div>
+          <PolarGraph />
+          <BarGraph />
         </div>
         <!-- End of about section -->
 
