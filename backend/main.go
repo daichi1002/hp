@@ -9,6 +9,7 @@ import (
 
 	domainrepo "backend/domain/repository"
 	"backend/infra/repository/article"
+	"backend/infra/repository/git"
 	"backend/server"
 
 	"github.com/gin-contrib/cors"
@@ -21,20 +22,20 @@ var logger = util.NewLogger()
 func main() {
 	// 環境変数読み込み
 	loadEnv()
+
+	ctx := context.Background()
 	// DB初期化処理
 	gormHandler := infra.NewGormHandler()
+	githubClient := infra.NewGithubApiClient(ctx)
 
 	repos := domainrepo.Repositories{
 		ArticleRepository: article.NewArticleRepository(gormHandler),
+		GitRepository:     git.NewGitRepository(githubClient),
 	}
 
 	router := gin.Default()
 
 	setCors(router)
-
-	ctx := context.Background()
-
-	// githubClient := server.NewGithubApiClient(ctx)
 
 	server.NewApiServer(ctx, router, repos)
 
