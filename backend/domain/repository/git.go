@@ -1,5 +1,7 @@
 package repository
 
+import "context"
+
 type GitRepository interface {
-	GetMostUsedLanguages() (string, error)
+	GetMostUsedLanguages(ctx context.Context) ([]map[string]int, error)
 }

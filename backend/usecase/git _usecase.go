@@ -3,7 +3,8 @@ package usecase
 import (
 	"backend/domain/repository"
 	"backend/util"
-	"fmt"
+	"context"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -20,10 +21,13 @@ func NewGitUsecase(repo repository.GitRepository) *GitUsecase {
 	}
 }
 
-func (u *GitUsecase) GetLanguages(c *gin.Context) {
-	languages, err := u.gitRepository.GetMostUsedLanguages()
+func (u *GitUsecase) GetLanguages(c *gin.Context, ctx context.Context) {
+	languages, err := u.gitRepository.GetMostUsedLanguages(ctx)
 
-	fmt.Println(languages)
-	fmt.Println(err)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, err)
+		return
+	}
 
+	c.JSON(http.StatusOK, languages)
 }
