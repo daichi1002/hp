@@ -3,13 +3,20 @@ package main
 import (
 	"backend/constant"
 	"backend/infra"
-	"fmt"
+	"backend/util"
+	"context"
 	"time"
+
+	domainrepo "backend/domain/repository"
+	"backend/infra/repository/article"
+	"backend/server"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
+
+var logger = util.NewLogger()
 
 func main() {
 	// 環境変数読み込み
@@ -17,21 +24,22 @@ func main() {
 	// DB初期化処理
 	gormHandler := infra.NewGormHandler()
 
-	fmt.Println(gormHandler)
-	// repos := domainrepo.Repositories{}
+	repos := domainrepo.Repositories{
+		ArticleRepository: article.NewArticleRepository(gormHandler),
+	}
 
-	// router := gin.Default()
+	router := gin.Default()
 
-	// setCors(router)
+	setCors(router)
 
-	// ctx := context.Background()
+	ctx := context.Background()
 
 	// githubClient := server.NewGithubApiClient(ctx)
 
-	// server.NewApiServer(ctx, router, repos, githubClient)
+	server.NewApiServer(ctx, router, repos)
 
-	// router.Run()
-	// logger.Info("server start!")
+	router.Run()
+	logger.Info("server start!")
 }
 
 func setCors(r *gin.Engine) {
