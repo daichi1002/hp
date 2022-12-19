@@ -10,11 +10,12 @@
         <NuxtLink to="/" class="mr-5 hover:text-gray-900">Home</NuxtLink>
         <NuxtLink to="" class="mr-5 hover:text-gray-900">Articles</NuxtLink>
       </nav>
-      <a href="https://www.wantedly.com/id/daichi_nagano_c">
+      <a href="https://www.wantedly.com/id/daichi_nagano_c" target="_blank">
         <img class="w-10 h-10" src="~/assets/images/wantedly.png" />
       </a>
       <a
         href="https://github.com/daichi1002/hp"
+        target="_blank"
         class="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 rounded text-base mt-4 md:mt-0"
       >
         <svg
