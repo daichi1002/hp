@@ -10,9 +10,12 @@
         <NuxtLink to="/" class="mr-5 hover:text-gray-900">Home</NuxtLink>
         <NuxtLink to="" class="mr-5 hover:text-gray-900">Articles</NuxtLink>
       </nav>
+      <a href="https://www.wantedly.com/id/daichi_nagano_c">
+        <img class="w-10 h-10" src="~/assets/images/wantedly.png" />
+      </a>
       <a
         href="https://github.com/daichi1002/hp"
-        class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        class="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 rounded text-base mt-4 md:mt-0"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,3 +32,58 @@
     </div>
   </header>
 </template>
+<style type="text/css">
+.st0 {
+  display: none;
+}
+.st1 {
+  display: inline;
+  fill: url(#SVGID_1_);
+}
+.st2 {
+  display: inline;
+  opacity: 0.1;
+}
+.st3 {
+  display: inline;
+  opacity: 0.2;
+  fill: #ffffff;
+}
+.st4 {
+  fill: #ffffff;
+}
+.st5 {
+  fill: #292929;
+}
+.st6 {
+  fill: #266fff;
+}
+.st7 {
+  fill: #08c5e7;
+}
+.st8 {
+  fill: #b14dff;
+}
+.st9 {
+  fill: #ff61a8;
+}
+.st10 {
+  fill: #00bedd;
+}
+.st11 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #292929;
+}
+.st12 {
+  fill: #e1e1e1;
+}
+.st13 {
+  fill: #5c5c5c;
+}
+.st14 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #ffffff;
+}
+</style>

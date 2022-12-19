@@ -5,7 +5,7 @@
       <img
         class="h-auto w-full mx-auto"
         src="~/assets/images/kamoshika.png"
-        alt=""
+        alt="kamoshika"
       />
 
       <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Daichi</h1>
