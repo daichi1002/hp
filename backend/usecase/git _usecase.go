@@ -26,6 +26,7 @@ func (u *GitUsecase) GetLanguages(c *gin.Context, ctx context.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
+		logger.Error(err)
 		return
 	}
 
