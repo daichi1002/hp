@@ -9,7 +9,7 @@
       />
 
       <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Daichi</h1>
-      <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">
+      <p class="text-sm text-gray-500 leading-6">
         新卒で地方銀行に入社し、約3年半勤務。その後、エンジニアとしてキャリアチェンジし、これまでRuby・TypeScript・Goなどを使用した開発業務を行なっています。
       </p>
       <ul

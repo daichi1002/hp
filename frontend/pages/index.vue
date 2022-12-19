@@ -7,6 +7,14 @@ const viewCareerDate = () => {
 
   return `${startDate}~${today}`;
 };
+
+const graph = ref(true);
+const viewPolarGraph = () => {
+  graph.value = true;
+};
+const viewBarGraph = () => {
+  graph.value = false;
+};
 </script>
 
 <template>
@@ -41,22 +49,32 @@ const viewCareerDate = () => {
           </div>
           <div class="text-gray-700">
             <div class="grid md:grid-cols-2 text-sm">
-              <div class="px-4 py-2 m-2 border rounded-lg">
+              <div
+                class="px-4 py-2 m-2 border rounded-lg hover:border-gray-400"
+                @mouseover="viewBarGraph"
+              >
                 <div class="p-2">Engineer Career</div>
                 <div class="p-2 text-xl font-bold">{{ calcCareer() }}days</div>
                 <div class="p-2">
                   {{ viewCareerDate() }}
                 </div>
               </div>
-              <div class="px-4 py-2 m-2 border rounded-lg">
+              <div
+                class="px-4 py-2 m-2 border rounded-lg hover:border-gray-400"
+                @mouseover="viewPolarGraph"
+              >
                 <div class="p-2">Most Used Language</div>
                 <div class="p-2 text-xl font-bold">Go</div>
                 <div class="p-2">○○○○(トータルコード数)</div>
               </div>
             </div>
           </div>
-          <PolarGraph />
-          <BarGraph />
+          <div class="h-96" v-if="graph">
+            <PolarGraph />
+          </div>
+          <div class="h-96" v-else>
+            <BarGraph />
+          </div>
         </div>
         <!-- End of about section -->
 
