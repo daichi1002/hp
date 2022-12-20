@@ -4,13 +4,13 @@ import { Chart, registerables } from "chart.js";
 import { Language } from "~~/types/language";
 
 interface Props {
-  languages: Language[];
+  languages: Language[] | undefined;
 }
 const props = defineProps<Props>();
 const langLabels: string[] = [];
 const langData: number[] = [];
 
-props.languages.map((a) => {
+props.languages?.map((a) => {
   langLabels.push(a.name);
   langData.push(a.ratio);
 });

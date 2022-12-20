@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { calcCareer, formatDate } from "~/util/date";
 import { getLanguages } from "~~/api/languages";
+import { getCommits } from "~/api/commit";
 
 const viewCareerDate = () => {
   const startDate = formatDate(new Date("2021-02-08"));
@@ -18,6 +19,7 @@ const viewBarGraph = () => {
 };
 
 const languages = await getLanguages();
+const commits = await getCommits();
 </script>
 
 <template>
@@ -75,11 +77,11 @@ const languages = await getLanguages();
               </div>
             </div>
           </div>
-          <div class="h-96" v-if="graph && languages != undefined">
+          <div class="h-96" v-if="graph">
             <PolarGraph :languages="languages?.slice(0, 5)" />
           </div>
           <div class="h-96" v-else>
-            <BarGraph />
+            <BarGraph :commits="commits?.slice(-7)" />
           </div>
         </div>
         <!-- End of about section -->

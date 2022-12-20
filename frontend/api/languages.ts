@@ -1,6 +1,6 @@
 import { Language } from "~~/types/language";
 
-export const getCommitData = async () => {
+export const getLanguageData = async () => {
   const config = useRuntimeConfig();
   const { error } = await useFetch(
     config.public.PUBLIC_BACKEND_URL + "commit_data"

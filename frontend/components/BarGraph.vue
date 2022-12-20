@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { Bar } from "vue-chartjs";
 import { Chart, registerables } from "chart.js";
+import { Commit } from "~/types/commit";
 Chart.register(...registerables);
+
+interface Props {
+  commits: Commit[] | undefined;
+}
+const props = defineProps<Props>();
+const date: string[] = [];
+const count: number[] = [];
+
+props.commits?.map((a) => {
+  date.push(a.date);
+  count.push(a.count);
+});
 const data = {
-  labels: [
-    "2022-12-11",
-    "2022-12-12",
-    "2022-12-13",
-    "2022-12-14",
-    "2022-12-15",
-    "2022-12-16",
-    "2022-12-17",
-  ],
+  labels: date,
   datasets: [
     {
       label: "My Second dataset",
@@ -33,7 +38,7 @@ const data = {
       ],
       borderWidth: 1,
 
-      data: [28, 48, 40, 19, 96, 54, 32, 65],
+      data: count,
     },
   ],
 };
