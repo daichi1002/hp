@@ -29,3 +29,14 @@ func (r *gitRepository) GetMostUsedLanguages(ctx context.Context) ([]map[string]
 	}
 	return languages, nil
 }
+
+func (r *gitRepository) GetEvent(ctx context.Context) ([]*github.Event, error) {
+	opt := &github.ListOptions{PerPage: 100}
+	events, _, err := r.Activity.ListEventsPerformedByUser(ctx, "daichi1002", true, opt)
+
+	if err != nil {
+		return nil, fmt.Errorf("Githubとの連携に失敗しました。%v", err)
+	}
+
+	return events, nil
+}

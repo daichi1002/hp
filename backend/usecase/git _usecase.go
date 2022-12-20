@@ -25,7 +25,7 @@ func NewGitUsecase(repo repository.GitRepository) *GitUsecase {
 }
 
 // GithubAPIを使用して、データ取得後JSONファイルに書き込み
-func (u *GitUsecase) GetCommitData(c *gin.Context, ctx context.Context) {
+func (u *GitUsecase) FetchLanguageData(c *gin.Context, ctx context.Context) {
 	usedlanguages, err := u.gitRepository.GetMostUsedLanguages(ctx)
 
 	if err != nil {
@@ -37,7 +37,7 @@ func (u *GitUsecase) GetCommitData(c *gin.Context, ctx context.Context) {
 	response := AddLanguages(usedlanguages)
 
 	// JSONファイルに書き込み
-	file, err := os.Create("language.json")
+	file, err := os.Create("./contents/language.json")
 	if err != nil {
 		logger.Error(err)
 	}
@@ -49,12 +49,37 @@ func (u *GitUsecase) GetCommitData(c *gin.Context, ctx context.Context) {
 		logger.Error(err)
 	}
 
-	c.JSON(http.StatusOK, response)
+	c.JSON(http.StatusOK, nil)
+}
+
+func (u *GitUsecase) FetchCommitData(c *gin.Context, ctx context.Context) {
+	events, err := u.gitRepository.GetEvent(ctx)
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, err)
+		logger.Error(err)
+		return
+	}
+
+	// JSONファイルに書き込み
+	file, err := os.Create("./contents/events.json")
+	if err != nil {
+		logger.Error(err)
+	}
+
+	defer file.Close()
+
+	encoder := json.NewEncoder(file)
+	if err := encoder.Encode(events); err != nil {
+		logger.Error(err)
+	}
+
+	c.JSON(http.StatusOK, nil)
 }
 
 // JSONファイルから読み込み、レスポンスを返す
 func (u *GitUsecase) GetLanguages(c *gin.Context) {
-	file, err := os.Open("language.json")
+	file, err := os.Open("./contents/language.json")
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
@@ -101,4 +126,28 @@ func AddLanguages(usedlanguages []map[string]int) []*model.Language {
 	}
 
 	return response
+}
+
+// JSONファイルから読み込み、レスポンスを返す
+func (u *GitUsecase) GetContributions(c *gin.Context) {
+	file, err := os.Open("./contents/events.json")
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, err)
+		logger.Error(err)
+		return
+	}
+
+	defer file.Close()
+
+	// JSON ファイルの内容を Person 構造体データとして読み出す
+	var languages []*model.Language
+	decoder := json.NewDecoder(file)
+	if err := decoder.Decode(&languages); err != nil {
+		c.JSON(http.StatusInternalServerError, err)
+		logger.Error(err)
+		return
+	}
+
+	c.JSON(http.StatusOK, languages)
 }
