@@ -11,5 +11,6 @@ import (
 func NewApiServer(ctx context.Context, router *gin.Engine, repos repository.Repositories) {
 	gitUsecase := usecase.NewGitUsecase(repos.GitRepository)
 
-	router.GET("/languages", func(c *gin.Context) { gitUsecase.GetLanguages(c, ctx) })
+	router.GET("/commit_data", func(c *gin.Context) { gitUsecase.GetCommitData(c, ctx) })
+	router.GET("/languages", func(c *gin.Context) { gitUsecase.GetLanguages(c) })
 }

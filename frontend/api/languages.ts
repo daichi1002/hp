@@ -1,9 +1,19 @@
-import { Language } from "~~/types/language";
-import fs from "fs";
+import { Languages } from "~~/types/language";
+
+export const getCommitData = async () => {
+  const config = useRuntimeConfig();
+  const { error } = await useFetch(
+    config.public.PUBLIC_BACKEND_URL + "commit_data"
+  );
+
+  if (error.value) {
+    console.log(error.value?.message);
+  }
+};
 
 export const getLanguages = async () => {
   const config = useRuntimeConfig();
-  const { data, error } = await useFetch<Language>(
+  const { data, error } = await useFetch<Languages>(
     config.public.PUBLIC_BACKEND_URL + "languages"
   );
 
@@ -11,9 +21,5 @@ export const getLanguages = async () => {
     console.log(error.value?.message);
   }
 
-  fs.writeFile(`language.json`, JSON.stringify(data.value), (err) => {
-    if (err) {
-      console.log("JSONファイル書き込みに失敗しました");
-    }
-  });
+  return data.value;
 };

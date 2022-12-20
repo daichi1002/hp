@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { calcCareer, formatDate } from "~/util/date";
-import { getLanguages } from "~/api/languages";
+import { getLanguages } from "~~/api/languages";
 
 const viewCareerDate = () => {
   const startDate = formatDate(new Date("2021-02-08"));
@@ -16,6 +16,8 @@ const viewPolarGraph = () => {
 const viewBarGraph = () => {
   graph.value = false;
 };
+
+const languages = await getLanguages();
 </script>
 
 <template>
