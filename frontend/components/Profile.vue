@@ -52,7 +52,7 @@
             />
           </svg>
         </span>
-        <span>最新記事</span>
+        <span>Latest Articles</span>
       </div>
       <div class="grid grid-cols-3"></div>
     </div>
