@@ -1,4 +1,4 @@
-import { Languages } from "~~/types/language";
+import { Language } from "~~/types/language";
 
 export const getCommitData = async () => {
   const config = useRuntimeConfig();
@@ -13,7 +13,7 @@ export const getCommitData = async () => {
 
 export const getLanguages = async () => {
   const config = useRuntimeConfig();
-  const { data, error } = await useFetch<Languages>(
+  const { data, error } = await useFetch<Language[]>(
     config.public.PUBLIC_BACKEND_URL + "languages"
   );
 
@@ -21,5 +21,5 @@ export const getLanguages = async () => {
     console.log(error.value?.message);
   }
 
-  return data.value;
+  return data.value?.sort((a, b) => b.ratio - a.ratio);
 };

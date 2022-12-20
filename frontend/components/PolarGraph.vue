@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import { PolarArea } from "vue-chartjs";
 import { Chart, registerables } from "chart.js";
-Chart.register(...registerables);
+import { Language } from "~~/types/language";
 
+interface Props {
+  languages: Language[];
+}
+const props = defineProps<Props>();
+const langLabels: string[] = [];
+const langData: number[] = [];
+
+props.languages.map((a) => {
+  langLabels.push(a.name);
+  langData.push(a.ratio);
+});
+
+Chart.register(...registerables);
 const data = {
-  labels: ["Ruby", "TypeScript", "Golang", "Vue", "JavaScript"],
+  labels: langLabels,
   datasets: [
     {
-      label: "My Second dataset",
       backgroundColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(54, 162, 235, 0.2)",
@@ -25,7 +37,7 @@ const data = {
         "rgba(255, 159, 64, 1)",
       ],
       borderWidth: 1,
-      data: [28, 48, 40, 19, 35],
+      data: langData,
     },
   ],
 };

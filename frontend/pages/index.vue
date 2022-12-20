@@ -57,7 +57,7 @@ const languages = await getLanguages();
                 @mouseover="viewBarGraph"
               >
                 <div class="p-2">Engineer Career</div>
-                <div class="p-2 text-xl font-bold">{{ calcCareer() }}days</div>
+                <div class="p-2 text-2xl font-bold">{{ calcCareer() }}days</div>
                 <div class="p-2">
                   {{ viewCareerDate() }}
                 </div>
@@ -65,15 +65,18 @@ const languages = await getLanguages();
               <div
                 class="px-4 py-2 m-2 border rounded-lg hover:border-gray-400"
                 @mouseover="viewPolarGraph"
+                v-if="languages != undefined"
               >
                 <div class="p-2">Most Used Language</div>
-                <div class="p-2 text-xl font-bold">Go</div>
-                <div class="p-2">○○○○(トータルコード数)</div>
+                <div class="p-2 text-2xl font-bold">
+                  {{ languages[0]?.name }}
+                </div>
+                <div class="p-2">{{ languages[0].ratio }} code</div>
               </div>
             </div>
           </div>
-          <div class="h-96" v-if="graph">
-            <PolarGraph />
+          <div class="h-96" v-if="graph && languages != undefined">
+            <PolarGraph :languages="languages?.slice(0, 5)" />
           </div>
           <div class="h-96" v-else>
             <BarGraph />
