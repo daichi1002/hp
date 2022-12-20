@@ -26,6 +26,7 @@
         <a
           class="text-teal-600"
           href="https://www.credly.com/earner/earned/badge/8e14359e-5350-4afc-bb2b-f2c9cb1bab87"
+          target="_blank"
         >
           AWS Certified Cloud Practitioner
         </a>
