@@ -188,7 +188,7 @@ func (u *GitUsecase) GetContributions(c *gin.Context) {
 func getJsonData[T model.Git](file *os.File, domain T) (T, error) {
 	decoder := json.NewDecoder(file)
 	if err := decoder.Decode(&domain); err != nil {
-		return nil, fmt.Errorf("JSONデコードに失敗しました。%v", err)
+		return nil, fmt.Errorf("JSONのデコードに失敗しました。%v", err)
 	}
 
 	return domain, nil
