@@ -1,5 +1,5 @@
 # My HP
-### under development from Dec 17, 2022
+### under development from 2022-12-17 ~
 
 https://blog-nd.com/
 
