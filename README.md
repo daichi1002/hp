@@ -7,8 +7,8 @@ https://blog-nd.com/
 
 # TODO
 
-- [ ] バッチ起動（1時間に1回）による外部API（GithubAPI）連携
+- [x] バッチ起動（1時間に1回）による外部API（GithubAPI）連携
 - [ ] デザイン修正
 - [ ] 外部API連携が成功・失敗していることを画面に表示
 - [ ] 記事閲覧機能作成
-- [ ] https
+- [x] https
