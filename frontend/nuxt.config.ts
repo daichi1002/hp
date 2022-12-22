@@ -6,4 +6,9 @@ export default defineNuxtConfig({
       PUBLIC_BACKEND_URL: process.env.PUBLIC_BACKEND_URL,
     },
   },
+  app: {
+    head: {
+      link: [{ rel: "icon", href: "/favicon.ico" }],
+    },
+  },
 });
