@@ -121,7 +121,7 @@ func AddCommits(events []*github.Event) []*model.Commit {
 		if _, ok := commit[formatDate]; ok {
 			commit[formatDate]++
 		} else {
-			commit[formatDate] = 0
+			commit[formatDate] = 1
 		}
 	}
 
