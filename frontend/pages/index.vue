@@ -57,7 +57,7 @@ const commits = await getCommits();
           <div class="text-gray-700">
             <div class="grid md:grid-cols-2 text-sm">
               <div
-                class="px-4 py-2 m-2 border rounded-lg hover:border-gray-400"
+                class="px-4 py-2 m-4 border rounded-lg hover:duration-1000 hover:scale-105"
                 @mouseover="viewBarGraph"
               >
                 <div class="p-2">Engineer Career</div>
@@ -67,7 +67,7 @@ const commits = await getCommits();
                 </div>
               </div>
               <div
-                class="px-4 py-2 m-2 border rounded-lg hover:border-gray-400"
+                class="px-4 py-2 m-4 border rounded-lg hover:duration-1000 hover:scale-105"
                 @mouseover="viewPolarGraph"
                 v-if="languages != undefined"
               >
