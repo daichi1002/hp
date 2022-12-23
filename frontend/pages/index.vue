@@ -31,7 +31,7 @@ const commits = await getCommits();
         <!-- Profile tab -->
         <!-- About Section -->
         <div class="bg-white p-3 border rounded-lg">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center">
             <div
               class="flex items-center space-x-2 font-semibold text-gray-900 leading-8"
             >
@@ -52,16 +52,6 @@ const commits = await getCommits();
                 </svg>
               </span>
               <span class="tracking-wide">Engineer Profile</span>
-            </div>
-            <div class="flex">
-              <div class="flex font-normal">
-                <div class="border-t border-l border-b p-1 text-sm">○</div>
-                <div class="p-1 mr-3 border text-sm">languages</div>
-              </div>
-              <div class="flex">
-                <div class="border-t border-l border-b p-1 text-sm">○</div>
-                <div class="mr-3 border p-1 text-sm">contributions</div>
-              </div>
             </div>
           </div>
           <div class="text-gray-700">
