@@ -57,7 +57,7 @@ const commits = await getCommits();
           <div class="text-gray-700">
             <div class="grid md:grid-cols-2 text-sm">
               <div
-                class="px-4 py-2 m-4 border rounded-lg hover:duration-1000 hover:scale-105"
+                class="px-4 py-2 m-4 border rounded-lg updown1"
                 @mouseover="viewBarGraph"
               >
                 <div class="p-2">Engineer Career</div>
@@ -67,7 +67,7 @@ const commits = await getCommits();
                 </div>
               </div>
               <div
-                class="px-4 py-2 m-4 border rounded-lg hover:duration-1000 hover:scale-105"
+                class="px-4 py-2 m-4 border rounded-lg updown2"
                 @mouseover="viewPolarGraph"
                 v-if="languages != undefined"
               >
@@ -101,3 +101,45 @@ const commits = await getCommits();
     </div>
   </div>
 </template>
+
+<style>
+.updown1 {
+  animation-name: updown1; /* アニメーション名の指定 */
+  animation-delay: 0s; /* アニメーションの開始時間指定 */
+  animation-duration: 6s; /* アニメーション動作時間の指定 */
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite; /* アニメーションをループさせる */
+}
+
+.updown2 {
+  animation-name: updown1; /* アニメーション名の指定 */
+  animation-delay: 3s; /* アニメーションの開始時間指定 */
+  animation-duration: 6s; /* アニメーション動作時間の指定 */
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite; /* アニメーションをループさせる */
+}
+
+@keyframes updown1 {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
