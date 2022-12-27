@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"backend/domain/repository"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,6 +17,27 @@ func NewArticleUsecase(repo repository.ArticleRepository) *ArticleUsecase {
 	}
 }
 
-func (u *ArticleUsecase) ListArticles(c *gin.Context) {}
+func (u *ArticleUsecase) ListArticles(c *gin.Context) {
+	articles, err := u.articleRepository.ListArticles()
 
-func (u *ArticleUsecase) GetArticle(c *gin.Context) {}
+	if err != nil {
+		logger.Error(err)
+		c.JSON(http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, articles)
+}
+
+func (u *ArticleUsecase) GetArticle(c *gin.Context) {
+	id := c.Params.ByName("id")
+	article, err := u.articleRepository.GetArticle(id)
+
+	if err != nil {
+		logger.Error(err)
+		c.JSON(http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, article)
+}
