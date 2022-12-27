@@ -2,6 +2,7 @@ package infra
 
 import (
 	"backend/constant"
+	"backend/domain/model"
 	"backend/util"
 	"fmt"
 	"time"
@@ -49,7 +50,7 @@ func connectDB() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	migrateErr := db.AutoMigrate()
+	migrateErr := db.AutoMigrate(&model.Article{}, &model.Tag{})
 
 	if migrateErr != nil {
 		return nil, migrateErr
