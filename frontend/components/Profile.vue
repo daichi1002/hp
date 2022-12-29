@@ -32,7 +32,7 @@
     <!-- End of profile card -->
     <div class="my-4"></div>
     <!-- Friends card -->
-    <div class="bg-white p-3 border rounded-lg">
+    <!-- <div class="bg-white p-3 border rounded-lg">
       <div
         class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8"
       >
@@ -55,6 +55,6 @@
         <span>Latest Articles</span>
       </div>
       <div class="grid grid-cols-3"></div>
-    </div>
+    </div> -->
   </div>
 </template>
