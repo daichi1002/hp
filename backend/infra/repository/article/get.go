@@ -5,7 +5,7 @@ import (
 )
 
 func (r *articleRepository) ListArticles() (articles []*model.Article, err error) {
-	err = r.DB.Preload("Tags").Find(&articles).Error
+	err = r.DB.Order("created_at desc").Preload("Tags").Find(&articles).Error
 
 	if err != nil {
 		return nil, err
