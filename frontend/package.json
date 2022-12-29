@@ -12,6 +12,7 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "chart.js": "^4.1.1",
     "vue-chartjs": "^5.0.1"
   }
