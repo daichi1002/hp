@@ -759,6 +759,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
   integrity sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==
 
+"@types/marked@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-4.0.8.tgz#b316887ab3499d0a8f4c70b7bd8508f92d477955"
+  integrity sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==
+
 "@types/node@*":
   version "18.11.16"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.16.tgz#966cae211e970199559cfbd295888fca189e49af"
@@ -803,6 +808,11 @@
   dependencies:
     "@unhead/schema" "1.0.13"
     hookable "^5.4.2"
+
+"@vavt/md-editor-extension@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@vavt/md-editor-extension/-/md-editor-extension-1.4.0.tgz#89c8aa25f73b7b73fe833523784aad4eea4a909e"
+  integrity sha512-PdTqrMPvATk31vF4ipxgGqXXi+kFd+lXlDsHdc+mS+DOCycd5EHSjcTm10evE1I7xSkk7yuIq8AcfYh/ukPIjA==
 
 "@vercel/nft@^0.22.1":
   version "0.22.6"
@@ -3123,6 +3133,11 @@ make-dir@^3.1.0, make-dir@~3.1.0:
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
     semver "^6.0.0"
+
+md-editor-v3@^2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/md-editor-v3/-/md-editor-v3-2.7.2.tgz#433883f21b1133775c2d4433e38bc4833bd8201e"
+  integrity sha512-CyLG7yZhMyKplXO/MYIccpL0AOcnys74cMpbBG77rmXWlANAmzLrznUU++g6MohTv3DCRNTz+5Uh/w9h9P2sSA==
 
 mdn-data@2.0.14:
   version "2.0.14"

@@ -17,7 +17,7 @@ const articles = await listArticles();
               <NuxtLink :to="`/article/${article.id}`">
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2">{{ article.title }}</div>
-                  <p class="text-gray-700 text-base line-clamp-5">
+                  <p class="text-gray-700 text-base line-clamp-4">
                     {{ article.content }}
                   </p>
                 </div>
