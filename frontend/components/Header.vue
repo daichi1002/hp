@@ -3,14 +3,13 @@
     <div
       class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center"
     >
-      <!-- <NuxtLink to="/"><img src="../assets/images/study.png" /></NuxtLink> -->
       <nav
         class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center"
       >
         <NuxtLink to="/" class="mr-5 hover:text-gray-900">Home</NuxtLink>
-        <!-- <NuxtLink to="/article" class="mr-5 hover:text-gray-900"
+        <NuxtLink to="/article" class="mr-5 hover:text-gray-900"
           >Articles</NuxtLink
-        > -->
+        >
       </nav>
       <a href="https://www.wantedly.com/id/daichi_nagano_c" target="_blank">
         <img class="w-10 h-10" src="~/assets/images/wantedly.png" />

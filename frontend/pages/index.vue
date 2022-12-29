@@ -17,8 +17,8 @@ const viewBarGraph = () => {
 };
 
 const { languages, commits, getLanguages, getCommits } = useContributionStore();
-await getLanguages;
-await getCommits;
+onMounted(() => getLanguages);
+onMounted(() => getCommits);
 </script>
 
 <template>
