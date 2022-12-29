@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { listArticles } from "~/api/article";
 
-const articles = await listArticles();
+const articles = onMounted(() => listArticles());
 </script>
 <template>
   <div class="container mx-auto my-5 p-5">
