@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { calcCareer, formatDate } from "~/util/date";
-import { getLanguages } from "~~/api/languages";
-import { getCommits } from "~/api/commit";
 
 const viewCareerDate = () => {
   const startDate = formatDate(new Date("2021-02-08"));
@@ -18,8 +16,9 @@ const viewBarGraph = () => {
   graph.value = false;
 };
 
-const languages = await getLanguages();
-const commits = await getCommits();
+const { languages, commits, getLanguages, getCommits } = useContributionStore();
+await getLanguages;
+await getCommits;
 </script>
 
 <template>
@@ -69,18 +68,17 @@ const commits = await getCommits();
               <div
                 class="px-4 py-2 m-4 border rounded-lg updown2"
                 @mouseover="viewPolarGraph"
-                v-if="languages != undefined"
               >
                 <div class="p-2">Most Used Language</div>
                 <div class="p-2 text-2xl font-bold">
-                  {{ languages[0]?.name }}
+                  {{ languages[0].name }}
                 </div>
                 <div class="p-2">{{ languages[0].ratio }} code</div>
               </div>
             </div>
           </div>
           <div class="h-96" v-if="graph">
-            <PolarGraph :languages="languages?.slice(0, 5)" />
+            <PolarGraph :languages="languages.slice(0, 5)" />
           </div>
           <div class="h-96" v-else>
             <BarGraph :commits="commits?.slice(-7)" />
