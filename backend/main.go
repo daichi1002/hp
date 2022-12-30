@@ -1,7 +1,6 @@
 package main
 
 import (
-	"backend/constant"
 	"backend/infra"
 	"backend/util"
 	"context"
@@ -14,14 +13,18 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
+	"github.com/joho/godotenv"
 )
 
 var logger = util.NewLogger()
 
 func main() {
 	// 環境変数読み込み
-	loadEnv()
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		logger.Fatalf("Failed to connect env: %v", err)
+	}
 
 	ctx := context.Background()
 	// DB初期化処理
@@ -52,11 +55,4 @@ func setCors(r *gin.Engine) {
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 	}))
-}
-
-func loadEnv() {
-	viper.AutomaticEnv()
-	viper.SetDefault(constant.DBHostEnv, "db")
-	viper.SetDefault(constant.DBUserEnv, "root")
-	viper.SetDefault(constant.DBNameEnv, "web")
 }

@@ -4,9 +4,9 @@ import (
 	"backend/constant"
 	"backend/util"
 	"fmt"
+	"os"
 	"time"
 
-	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -28,11 +28,17 @@ func NewGormHandler() *GormHandler {
 }
 
 func connectDB() (*gorm.DB, error) {
-	dbName := viper.GetString(constant.DBNameEnv)
-	dbUser := viper.GetString(constant.DBUserEnv)
-	dbHost := viper.GetString(constant.DBHostEnv)
+	dbHost := os.Getenv(constant.DBHostEnv)
+	dbPort := os.Getenv(constant.DBPortEnv)
+	dBName := os.Getenv(constant.DBNameEnv)
+	dbUser := os.Getenv(constant.DBUserEnv)
+	dbPassword := os.Getenv(constant.DBPasswordEnv)
 
-	dsn := fmt.Sprintf("%v@tcp(%s)/%v?charset=utf8&parseTime=True&loc=Local&timeout=10s", dbUser, dbHost, dbName)
+	dbAuth := dbUser
+	if len(dbPassword) > 0 {
+		dbAuth += ":" + dbPassword
+	}
+	dsn := fmt.Sprintf("%v@tcp(%v:%v)/%v?charset=utf8&parseTime=True&loc=Local&timeout=10s", dbAuth, dbHost, dbPort, dBName)
 
 	var db *gorm.DB
 	var err error
