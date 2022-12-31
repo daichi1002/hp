@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { listArticles } from "~/api/article";
-
-const articles = onMounted(() => listArticles());
+const { articles, listArticles } = useArticleStore();
+onMounted(() => listArticles);
 </script>
 <template>
   <div class="container mx-auto my-5 p-5">
