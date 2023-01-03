@@ -73,7 +73,9 @@ onMounted(() => getCommits);
                 <div class="p-2 text-2xl font-bold">
                   {{ languages[0].name }}
                 </div>
-                <div class="p-2">{{ languages[0].ratio }} code</div>
+                <div class="p-2">
+                  {{ languages[0].ratio.toLocaleString() }} code
+                </div>
               </div>
             </div>
           </div>
