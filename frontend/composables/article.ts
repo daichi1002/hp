@@ -10,7 +10,7 @@ export const useArticleStore = () => {
   };
 };
 
-export const listArticles = async (state: Ref<Article[]>) => {
+const listArticles = async (state: Ref<Article[]>) => {
   const config = useRuntimeConfig();
   const { data, error } = await useFetch<Article[]>(
     config.public.PUBLIC_BACKEND_URL + "articles"

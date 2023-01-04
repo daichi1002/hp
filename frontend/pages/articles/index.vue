@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const { articles, listArticles } = useArticleStore();
-onMounted(() => listArticles);
+import { listArticles } from "~/api/article";
+// const { articles, listArticles } = useArticleStore();
+// onMounted(() => listArticles);
+const articles = await listArticles();
 </script>
 <template>
   <div class="container mx-auto my-5 p-5">
