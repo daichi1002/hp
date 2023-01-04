@@ -6,7 +6,7 @@ import "md-editor-v3/lib/style.css";
 const router = useRoute();
 const { id } = router.params;
 const article = await getArticle(id);
-const content = ref(article.value?.content);
+const content = ref(article.content);
 </script>
 <template>
   <div class="container mx-auto my-5 p-5">
