@@ -13,7 +13,7 @@ onMounted(() => listArticles);
             <div
               class="max-w-sm rounded-lg overflow-hidden border mb-6 ml-2 hover:duration-1000 hover:scale-105"
             >
-              <NuxtLink :to="`/article/${article.id}`">
+              <NuxtLink :to="`/articles/${article.id}`">
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2">{{ article.title }}</div>
                   <p class="text-gray-700 text-base line-clamp-4">
