@@ -13,6 +13,7 @@ export const getArticle = async (id: string | string[]) => {
   });
 
   return res;
+  // TODO：上記どちらかを採用
   // const { data, error } = await useFetch<Article>(
   //   config.public.PUBLIC_BACKEND_URL + `article/${id}`
   // );
@@ -37,6 +38,7 @@ export const listArticles = async () => {
   });
 
   return res;
+  // TODO：上記どちらかを採用
   // const config = useRuntimeConfig();
   // const { data, error } = await useFetch<Article[]>(
   //   config.public.PUBLIC_BACKEND_URL + "articles"
