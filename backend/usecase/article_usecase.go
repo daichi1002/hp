@@ -17,6 +17,7 @@ func NewArticleUsecase(repo repository.ArticleRepository) *ArticleUsecase {
 	}
 }
 
+// 記事一覧取得
 func (u *ArticleUsecase) ListArticles(c *gin.Context) {
 	articles, err := u.articleRepository.ListArticles()
 
@@ -29,6 +30,7 @@ func (u *ArticleUsecase) ListArticles(c *gin.Context) {
 	c.JSON(http.StatusOK, articles)
 }
 
+// 記事詳細取得
 func (u *ArticleUsecase) GetArticle(c *gin.Context) {
 	id := c.Params.ByName("id")
 	article, err := u.articleRepository.GetArticle(id)
