@@ -1,7 +1,4 @@
 # My HP
-### under development from 2022-12-17 ~
-
-https://blog-nd.com/
 
 <img width="1430" alt="スクリーンショット 2022-12-20 19 00 59" src="https://user-images.githubusercontent.com/72916511/208640131-de7156a8-9065-410b-9693-b9e13c85bada.png">
 
